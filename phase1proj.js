@@ -19,14 +19,20 @@ document.addEventListener('DOMContentLoaded', function(){
         const input= document.getElementById('submit');
         const text = document.getElementById('find')
         const foundDrink = document.getElementById('found-drink')
+        
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text.value}`)
         .then(response=>response.json())
         .then(data=>{
             console.log('inside click listener')
+            try{
             renderDrinks(data, foundDrink)
+            }catch{
+                alert("Your drink was not found, please try again!")
+            }
             
         })
         form.reset()
+    
     })
     function renderDrinks(data, appendDrinks){
         console.log('inside renderDrinks')
