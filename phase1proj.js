@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
         })
         form.reset()
+        foundDrink.replaceChildren()
     
     })
     function renderDrinks(data, appendDrinks){
