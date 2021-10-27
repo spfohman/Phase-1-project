@@ -31,3 +31,6 @@ div>div{
     margin: 20px;
     text-align: center;
 }
+#found-drink{
+    border: 4px solid black;
+}
