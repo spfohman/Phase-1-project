@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     console.log('dom loaded')
-    const input = document.getElementById('find')
     const drinkContainer =  document.getElementById('drink-container')
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`)
     .then(result=>result.json())
     .then(result=>{
         renderDrinks(result, drinkContainer);
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function(){
     form.appendChild(button)
     button.addEventListener('click', (e)=>{
         e.preventDefault();
-        const input= document.getElementById('submit');
         const text = document.getElementById('find')
         const foundDrink = document.getElementById('found-drink')
         
