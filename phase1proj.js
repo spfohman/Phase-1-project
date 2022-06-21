@@ -1,5 +1,15 @@
-document.addEventListener('DOMContentLoaded', function(){
+
+document.addEventListener('DOMContentLoaded', ()=> {
     console.log('dom loaded')
+    const superLikes = document.getElementById('superLikes')
+    let sL = 0
+    superLikes.innerHTML = `All likes: ${sL}`;
+    
+    // let likes = 0;
+    //         likes.innerHTML = `Likes: ${drinkLikes}`;
+    //         drinkName.innerHTML = `Drink name: ${drink.strDrink}`;
+
+
     const drinkContainer =  document.getElementById('drink-container')
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`)
     .then(result=>result.json())
@@ -15,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
     form.appendChild(button)
     button.addEventListener('click', (e)=>{
         e.preventDefault();
+        const input= document.getElementById('submit');
         const text = document.getElementById('find')
         const foundDrink = document.getElementById('found-drink')
         
@@ -50,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function(){
             img.src = drink.strDrinkThumb;
             likeButton.innerHTML = `Click to Like!`
             likeButton.addEventListener('click', ()=>{
-                likes.innerHTML = `Likes: ${drinkLikes++}`;
+                likes.innerHTML = `Likes: ${++drinkLikes}`;
+                
+                superLikes.innerHTML = `All likes: ${++sL}`
             })
             
             
@@ -67,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function(){
             ingredients.innerHTML = `Ingredients: ${ingredientsArray}`;
             measurements= document.createElement('li')
             
-            let measurementArray = [];
+            const measurementArray = [];
             for(let i = 1; i<16; i++){
                 const measure = drink[`strMeasure${i}`]
                 if(measure !== null){
